@@ -4,9 +4,16 @@ import android.util.Pair;
 
 import java.util.List;
 
+/*
+ * 趋势图数据源
+ * hzl add for 2020/04/23
+ */
 public class ChartData {
+    //数据标题，在趋势图的上方显示
     private String title;
+    //控制数据绘制的线条颜色
     private int color;
+    //数据组元素，Pair.first写入X轴对应数据，Pair.second写入y轴对应数据
     private List<Pair<Object,Object>> data;
 
     public String getTitle() {

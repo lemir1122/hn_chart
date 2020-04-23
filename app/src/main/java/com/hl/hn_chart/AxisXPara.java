@@ -1,7 +1,11 @@
 package com.hl.hn_chart;
 
-public class AxisXPara {
 
+/*
+ * X轴参数
+ * hzl add for 2020/04/23
+ */
+public class AxisXPara {
 
     /**
      * 设置X轴类型

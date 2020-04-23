@@ -1,5 +1,10 @@
 package com.hl.hn_chart;
 
+
+/*
+ * Y轴参数
+ * hzl add for 2020/04/23
+ */
 public class AxisYPara {
     //最大值
     private double maxNumber;

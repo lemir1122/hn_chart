@@ -27,6 +27,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+/*
+ * 柱状图控件
+ * 描述：控件通过传递AxisXPara、AxisYPara、List<ChartData>三个参数进行绘制。
+ * Y轴支持double类型和自定义小数点位数，参数可自定义最大和最小值，也可以通过传输的数据自行设置
+ * X轴支持时间、字符串列、数字。
+ *    时间类型：通过AxisXPara.setDatePara指定显示方式，并可以通过AxisXPara.setDateDefault指定初始X长度，
+ *             如果显示数据内的时间超过指定的初始最大时间，自动以数据时间为准。
+ *    字符串列类型：字符串自动进行文字排序，在柱状图内，多条数据将并排放置，未限制数据的总数量，但需要考虑过多的数据会导致重叠。
+ * hzl add for 2020/04/23
+ */
 public class ColumnChartView extends View {
 
     AxisXPara axis_x;
