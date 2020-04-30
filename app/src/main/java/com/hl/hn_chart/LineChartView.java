@@ -67,6 +67,9 @@ public class LineChartView extends View {
 
     boolean init = false;
 
+    //是否绘制圆点
+    boolean drawpoint = true;
+
     public LineChartView(Context context) {
         super(context);
         init();
@@ -119,7 +122,11 @@ public class LineChartView extends View {
     public void updateData(){
         if(init){
             try{
+                //初始化计算参数
+                date_max = 0;
+                date_min = 0;
                 x_node.clear();
+
                 for(ChartData data : datas){
                     //定义是否需要替换x_node
                     for(Pair<Object, Object> pair : data.getData()){
@@ -185,6 +192,22 @@ public class LineChartView extends View {
 
     public boolean isInit(){
         return init;
+    }
+
+    /**
+     * 设置是否为数据绘制圆点
+     * @param drawpoint
+     */
+    public void setDrawpoint(boolean drawpoint){
+        this.drawpoint = drawpoint;
+    }
+    
+    /**
+     * 设置Y轴刻度数量
+     * @param y_count
+     */
+    public void setYCount(int y_count){
+        this.y_count = y_count;
     }
 
     @Override
@@ -335,7 +358,10 @@ public class LineChartView extends View {
                     Path path = new Path();
                     for(int i = 0;i<points.size();i++){
                         Point point = points.get(i);
-                        canvas.drawCircle(point.x,point.y,radius,paint);
+                        if(drawpoint){
+                            canvas.drawCircle(point.x,point.y,radius,paint);
+                        }
+
                         if(i == 0){
                             path.moveTo(point.x,starty);
                         }
@@ -452,7 +478,9 @@ public class LineChartView extends View {
                         Path path = new Path();
                         for(int i = 0;i<points.size();i++){
                             Point point = points.get(i);
-                            canvas.drawCircle(point.x,point.y,radius,paint);
+                            if(drawpoint){
+                                canvas.drawCircle(point.x,point.y,radius,paint);
+                            }
                             if(i == 0){
                                 path.moveTo(point.x,starty);
                             }
